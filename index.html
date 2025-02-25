@@ -8,46 +8,161 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
             text-align: center;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
+            padding-top: 50px;
         }
-        h1, h2 {
+        h1 {
+            font-size: 36px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 22px;
             margin: 10px 0;
         }
-        a {
+        h3 {
+            font-size: 16px;
+            color: #ddd;
+            margin: 10px 0;
+        }
+        .app-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .app-links a {
             display: block;
-            margin: 20px;
             padding: 15px;
-            font-size: 20px;
+            font-size: 18px;
             color: white;
             background-color: #298cce;
             text-decoration: none;
-            border-radius: 5px;
-            width: 200px;
-            margin-left: auto;
-            margin-right: auto;
+            border-radius: 10px;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
-        a:hover {
+        .app-links a:hover {
             background-color: #4976a5;
+            transform: scale(1.05);
+        }
+        .search-container {
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .search-container input {
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            background-color: white; /* Fondo blanco */
+            color: black; /* Texto negro */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        /* Media query para dispositivos móviles */
+        @media (max-width: 600px) {
+            body {
+                padding-top: 20px;
+            }
+            .app-links a {
+                width: 90%;
+            }
+            .search-container input {
+                width: 90%;
+            }
+            footer {
+                font-size: 12px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+        }
+
+        /* Mejorar el tamaño del título y otros textos en pantallas grandes */
+        @media (min-width: 601px) {
+            h1 {
+                font-size: 40px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            .app-links a {
+                width: 300px;
+            }
         }
     </style>
 </head>
-<body></body>
+<body>
+
     <h1>Descarga Gratis en Jonadex</h1>
-    <h2>Sigueme para más o pide aplicaciones</h2>
+    <h2>Sígueme para más o pide aplicaciones</h2>
     <h3>Beta: 0.2</h3>
-    <a href="https://drive.google.com/file/d/14N_Bm4vHUlzneUt1blm4gGnfryjMADfS/view?usp=drive_link">Spotify</a>
-    <a href="https://drive.google.com/file/d/14Fno03beSiUkxJALgitymF9pcDhXxbSC/view?usp=drive_link">Sonic Mania Plus</a>
-    <a href="https://drive.google.com/file/d/1SQ99xe4Gxi0JqN8ewHPxeyJNleRvpRSi/view?usp=sharing">Minecraft 0.14.0</a>
-    <a href="https://https://drive.google.com/file/d/1Pb6-RHVaALh155CCSaznCa1x_YsLodxm/view?usp=drivesdk">Fnaf 4
-    <a href="https://drive.google.com/file/d/12eyuG7TPV9uxONcZaGIgQIUcDPxAOZgj/view?usp=drivesdk">Kirby Nightmare</a>
-    <a href="https://www.instagram.com/jjona.idk/">Sigueme en mi instagram</a>
+
+    <!-- Barra de búsqueda -->
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Buscar aplicación..." onkeyup="searchApps()">
+    </div>
+
+    <!-- Lista de aplicaciones -->
+    <div class="app-links" id="app-list">
+        <a href="https://drive.google.com/file/d/14N_Bm4vHUlzneUt1blm4gGnfryjMADfS/view?usp=drive_link" class="app-item">Spotify</a>
+        <a href="https://drive.google.com/file/d/14Fno03beSiUkxJALgitymF9pcDhXxbSC/view?usp=drive_link" class="app-item">Sonic Mania Plus</a>
+        <a href="https://drive.google.com/file/d/1SQ99xe4Gxi0JqN8ewHPxeyJNleRvpRSi/view?usp=sharing" class="app-item">Minecraft 0.14.0</a>
+        <a href="https://drive.google.com/file/d/1Pb6-RHVaALh155CCSaznCa1x_YsLodxm/view?usp=drivesdk" class="app-item">Fnaf 4</a>
+        <a href="https://drive.google.com/file/d/12eyuG7TPV9uxONcZaGIgQIUcDPxAOZgj/view?usp=drivesdk" class="app-item">Kirby Nightmare</a>
+        <a href="https://www.instagram.com/jjona.idk/" class="app-item">Sígueme en mi Instagram</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© Jona 2025</p>
+    </footer>
+
+    <script>
+        function searchApps() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let appLinks = document.querySelectorAll('.app-item');
+
+            appLinks.forEach(function(link) {
+                let appName = link.textContent.toLowerCase();
+                if (appName.indexOf(input) !== -1) {
+                    link.style.display = 'block';
+                } else {
+                    link.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
 </body>
-</html>
+            </html>
