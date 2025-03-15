@@ -3,163 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonadex</title>
+    <title>Jonadex - Arcade Retro💾</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
+        /* Estilos generales */
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
+            font-family: 'Press Start 2P', cursive;
+            background: black;
+            color: #ffffff;
             text-align: center;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            padding-top: 50px;
+            padding-top: 60px;
         }
-        h1 {
-            font-size: 36px;
-            margin: 20px 0;
-            font-weight: bold;
+
+        /* Efecto de pantalla CRT */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.fabrizioduroni.it/assets/posts/2017-08-06-old-crt-style/crt-lines.png');
+            opacity: 0.1;
+            pointer-events: none;
         }
-        h2 {
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(to bottom, #ff4444, #990000);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            text-shadow: 3px 3px 0px black;
+            color: #ffcc00;
             font-size: 22px;
-            margin: 10px 0;
         }
-        h3 {
-            font-size: 16px;
-            color: #ddd;
-            margin: 10px 0;
+
+        h1 {
+            margin: 0;
         }
+
+        /* Texto Parpadeante */
+        .blinking-text {
+            font-size: 14px;
+            font-weight: bold;
+            animation: blink-animation 1s infinite alternate;
+        }
+
+        @keyframes blink-animation {
+            0% { color: #ffcc00; text-shadow: 3px 3px 0px black; }
+            25% { color: #ff66ff; text-shadow: 3px 3px 0px #660066; }
+            50% { color: #00ffcc; text-shadow: 3px 3px 0px #003333; }
+            75% { color: #ff3333; text-shadow: 3px 3px 0px #660000; }
+            100% { color: #ffff33; text-shadow: 3px 3px 0px #666600; }
+        }
+
+        /* Barra de búsqueda */
+        .search-container {
+            margin: 20px 0;
+        }
+
+        .search-container input {
+            padding: 10px;
+            font-size: 14px;
+            border: 3px solid #ffcc00;
+            border-radius: 5px;
+            background: black;
+            color: #ffcc00;
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+            width: 250px;
+            outline: none;
+        }
+
+        /* Botones con degradado */
         .app-links {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 15px;
             margin-top: 20px;
-            width: 100%;
-            max-width: 400px;
         }
+
         .app-links a {
             display: block;
             padding: 15px;
-            font-size: 18px;
-            color: white;
-            background-color: #298cce;
-            text-decoration: none;
-            border-radius: 10px;
-            width: 100%;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .app-links a:hover {
-            background-color: #4976a5;
-            transform: scale(1.05);
-        }
-        .search-container {
-            margin-bottom: 20px;
-            width: 100%;
-            max-width: 400px;
-        }
-        .search-container input {
-            padding: 12px;
-            font-size: 16px;
-            border: none;
-            border-radius: 10px;
-            width: 100%;
-            background-color: white; /* Fondo blanco */
-            color: black; /* Texto negro */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
-        }
-        .search-container input:focus {
-            outline: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        footer {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
             font-size: 14px;
-            color: #aaa;
+            color: white;
+            background: linear-gradient(to bottom, #ff6666, #cc0000);
+            border: 3px solid #ffcc00;
+            text-shadow: 2px 2px 0px black;
+            text-decoration: none;
+            width: 280px;
+            transition: transform 0.1s ease, background 0.3s;
         }
 
-        /* Media query para dispositivos móviles */
-        @media (max-width: 600px) {
-            body {
-                padding-top: 20px;
-            }
-            .app-links a {
-                width: 90%;
-            }
-            .search-container input {
-                width: 90%;
-            }
-            footer {
-                font-size: 12px;
-            }
-            h1 {
-                font-size: 28px;
-            }
-            h2 {
-                font-size: 18px;
-            }
+        .app-links a:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to bottom, #ff8888, #ff2222);
         }
 
-        /* Mejorar el tamaño del título y otros textos en pantallas grandes */
-        @media (min-width: 601px) {
-            h1 {
-                font-size: 40px;
-            }
-            h2 {
-                font-size: 24px;
-            }
-            .app-links a {
-                width: 300px;
-            }
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #ffcc00;
         }
     </style>
 </head>
 <body>
 
-    <h1>Descarga Gratis en Jonadex</h1>
-    <h2>Sígueme para más</h2>
-    <h4>Beta: 0.2.2 💾</h4>
+    <div class="banner">
+        <h1>🎮 Jonadex Arcade🎮</h1>
+    </div>
+
+    <h2 class="blinking-text">Descargas gratis</h2>
+    <h4>Beta: 0.3.2 💾</h4>
 
     <!-- Barra de búsqueda -->
     <div class="search-container">
-        <input type="text" id="search" placeholder="Buscar aplicación 💾..." onkeyup="searchApps()">
+        <input type="text" id="search" placeholder="🔍 Buscar juego..." onkeyup="searchApps()">
     </div>
 
-    <!-- Lista de aplicaciones -->
+    <!-- Lista de juegos -->
     <div class="app-links" id="app-list">
-        <a href="https://drive.google.com/file/d/1CVEkYyIiIhSgFLTPeG4zMp_RZSfZ25q5/view?usp=drivesdk" class="app-item">Spotify Desbloqueado</a>
-        <a href="https://drive.google.com/file/d/14Fno03beSiUkxJALgitymF9pcDhXxbSC/view?usp=drive_link" class="app-item">Sonic Mania Plus</a>
-        <a href="https://drive.google.com/file/d/1SQ99xe4Gxi0JqN8ewHPxeyJNleRvpRSi/view?usp=sharing" class="app-item">Minecraft 0.14.0</a>
-        <a href="https://drive.google.com/file/d/1Pb6-RHVaALh155CCSaznCa1x_YsLodxm/view?usp=drivesdk" class="app-item">Fnaf 4</a>
-        <a href="https://drive.google.com/file/d/12eyuG7TPV9uxONcZaGIgQIUcDPxAOZgj/view?usp=drivesdk" class="app-item">Kirby Nightmare</a>
-        <a href="https://drive.google.com/file/d/14lOSq2zaNlkTty_icu2t-_hkQY7iPERM/view?usp=drivesdk" class="app-item">Hollow Knight
-        <a href="https://drive.google.com/file/d/177K5xAK8eAsy0B6oauEwlLFPLVg1qIKy/view?usp=drivesdk" class="app-item">Chuphead
-        <a href="https://drive.google.com/file/d/18EofHDvhEreyi00WjsV8cTlwPGsVTpZR/view?usp=drivesdk" class="app-item">Descargador de videos
-        <a href="https://www.instagram.com/jjona.idk/" class="app-item">Sígueme en Instagram 💾</a>
+       <a href="https://drive.google.com/file/d/1CVEkYyIiIhSgFLTPeG4zMp_RZSfZ25q5/view?usp=drivesdk">📼 Spotify </a>
+        <a href"https://drive.google.com/file/d/1FSCkuH4ROggBZ69RLDLIKsZRGwsu8x2Z/view?usp=drivesdk">🕸️ Spiderman GBA</a>
+        <a href="https://drive.google.com/file/d/14Fno03beSiUkxJALgitymF9pcDhXxbSC/view?usp=drivesdk">🕹️ Sonic Mania Plus</a>
         
-            ©Jona 2025
+        <a href="https://drive.google.com/file/d/1SQ99xe4Gxi0JqN8ewHPxeyJNleRvpRSi/view?usp=drivesdk">⛏️ Minecraft 0.14.0</a>
+        <a href="https://drive.google.com/file/d/1G3Hq_YcxpWywWk085Jf_lIxVpybATh4M/view?usp=drivesdk">👻 FNAF 3</a>
+        <a href="https://drive.google.com/file/d/12eyuG7TPV9uxONcZaGIgQIUcDPxAOZgj/view?usp=drivesdk">⭐ Kirby Nightmare</a>
+        <a href="https://drive.google.com/file/d/14lOSq2zaNlkTty_icu2t-_hkQY7iPERM/view?usp=drivesdk">⚔️ Hollow Knight</a>
+        <a href="https://drive.google.com/file/d/177K5xAK8eAsy0B6oauEwlLFPLVg1qIKy/view?usp=drivesdk">☕ Cuphead</a>
+        <a href="https://drive.google.com/file/d/18EofHDvhEreyi00WjsV8cTlwPGsVTpZR/view?usp=drivesdk">🎥 Descargador de videos</a>
+        <a href="https://www.instagram.com/jjona.idk/">📷 Sígueme en Instagram ♡</a>
+    </div>
 
     <!-- Footer -->
     <footer>
-        <p></p>
+        © Jonadex 2025 - Arcade Edition 🕹️
     </footer>
 
     <script>
         function searchApps() {
             let input = document.getElementById('search').value.toLowerCase();
-            let appLinks = document.querySelectorAll('.app-item');
+            let appLinks = document.querySelectorAll('.app-links a');
 
             appLinks.forEach(function(link) {
                 let appName = link.textContent.toLowerCase();
-                if (appName.indexOf(input) !== -1) {
+                if (appName.includes(input)) {
                     link.style.display = 'block';
                 } else {
                     link.style.display = 'none';
