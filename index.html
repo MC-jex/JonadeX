@@ -1,14 +1,344 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2414583241100203" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
-    <title>Jona</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonadex💾</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales mejorados */
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding-top: 40px;
+            margin: 0;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Efecto CRT mejorado */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.08), rgba(0, 255, 0, 0.04), rgba(0, 0, 255, 0.08));
+            background-size: 100% 3px, 4px 100%;
+            pointer-events: none;
+            z-index: 100;
+            animation: scanline 0.8s linear infinite;
+        }
+
+        @keyframes scanline {
+            from { background-position: 0 0; }
+            to { background-position: 0 3px; }
+        }
+
+        /* Marco de pantalla arcade (solo esquinas) */
+        .screen-border {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 12px solid transparent;
+            box-sizing: border-box;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        /* Banner estilo arcade mejorado */
+        .banner {
+            background: linear-gradient(145deg, #ff2222, #880000);
+            padding: 20px 40px;
+            border-radius: 12px;
+            display: inline-block;
+            text-shadow: 
+                3px 3px 0 #000,
+                5px 5px 0 rgba(0, 0, 0, 0.4);
+            color: #ffcc00;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border: 4px solid #ffcc00;
+            box-shadow: 
+                0 8px 0 #660000,
+                inset 0 0 20px rgba(255, 204, 0, 0.4);
+            transform: rotate(-1deg);
+            animation: banner-pulse 2s infinite alternate;
+        }
+
+        @keyframes banner-pulse {
+            0% { transform: rotate(-1deg) scale(1); }
+            100% { transform: rotate(-1deg) scale(1.02); }
+        }
+
+        h1 {
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        /* Texto Parpadeante mejorado */
+        .blinking-text {
+            font-size: 16px;
+            font-weight: bold;
+            animation: blink-animation 1.5s infinite steps(4);
+            text-shadow: 0 0 8px currentColor;
+            margin: 15px 0;
+        }
+
+        @keyframes blink-animation {
+            0% { color: #ffcc00; text-shadow: 0 0 10px #ffcc00; }
+            25% { color: #ff66ff; text-shadow: 0 0 10px #ff66ff; }
+            50% { color: #00ffcc; text-shadow: 0 0 10px #00ffcc; }
+            75% { color: #ff3333; text-shadow: 0 0 10px #ff3333; }
+            100% { color: #ffff33; text-shadow: 0 0 10px #ffff33; }
+        }
+
+        /* Barra de búsqueda estilo arcade */
+        .search-container {
+            margin: 5px 0;
+            position: relative;
+        }
+
+        .search-container::before {
+            content: ">";
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #00ffff;
+            font-size: 18px;
+            text-shadow: 0 0 75px #00ffcc;
+            z-index: 2;
+        }
+
+        .search-container input {
+            padding: 12px 15px 12px 35px;
+            font-size: 14px;
+            border: 3px solid #0f0;
+            border-radius: 0;
+            background: rgba(0, 20, 0, 0.7);
+            color: #0f0;
+            text-align: left;
+            font-family: 'Press Start 2P', cursive;
+            width: 2808px;
+            outline: none;
+            box-shadow: 
+                0 0 1px rgba(0, 2585, 0, 0.84),
+                inset 0 0 10px rgba(0, 255, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .search-container input:focus {
+            background: rgba(0, 730, 0, 0.9);
+            box-shadow: 
+                0 0 20px rgba(0, 255, 0, 0.7),
+                inset 0 0 15px rgba(0, 255, 0, 0.3);
+        }
+
+        .search-container input::placeholder {
+            color: rgba(0, 2585, 0, 0.6);
+        }
+
+        /* Botones estilo máquina arcade */
+        .app-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 17px;
+            margin: 30px 0;
+        }
+
+        .app-links a {
+            display: block;
+            padding: 15px 20px;
+            font-size: 140px;
+            color: white;
+            background: linear-gradient(145deg, #ff5555, #aa0000);
+            border: 3px solid #ffcc00;
+            border-radius: 10px;
+            text-shadow: 2px 2px 0px #000;
+            text-decoration: none;
+            width: 300px;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 
+                0 6px 0 #660000,
+                inset 0 0 10px rgba(255, 255, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-links a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 9.590s;
+        }
+
+        .app-links a:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: linear-gradient(145deg, #ff7777, #cc2222);
+            box-shadow: 
+                0 11px 0 #660000,
+                inset 0 0 15px rgba(255, 255, 0, 0.5);
+            color: #ffff00;
+        }
+
+        .app-links a:hover::before {
+            left: 100%;
+        }
+
+        .app-links a:active {
+            transform: translateY(2px);
+            box-shadow: 
+                0 4px 0 #660000,
+                inset 0 0 5px rgba(255, 255, 0, 0.2);
+        }
+
+        /* Footer mejorado */
+        footer {
+            margin-top: 1px;
+            font-size: 10px;
+            color: #fff;
+            text-shadow: 0 0 5px #fff;
+            padding: 10px;
+            position: relative;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ffcc00, transparent);
+        }
+
+        /* Efecto de parpadeo CRT */
+        @keyframes crt-flicker {
+            0%, 100% { opacity: 1; }
+            2%, 8% { opacity: 0.9; }
+            4%, 6% { opacity: 0.95; }
+            50% { opacity: 0.85; }
+        }
+
+        body {
+            animation: crt-flicker 8s infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .banner {
+                font-size: 18px;
+                padding: 15px 25px;
+            }
+            
+            .search-container input {
+                width: 90%;
+                max-width: 280px;
+            }
+            
+            .app-links a {
+                width: 90%;
+                max-width: 300px;
+                font-size: 13px;
+                padding: 12px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-   <h1>Mc-Jex (Jona-Dex)
-    <h2>Página Borrada</h2>
-    <p>servidores cerrados.</p>
-    <h2>Creación: 5/6/2024</h2>
-       <h7>gracias.</h7>
+    <!-- Marco de pantalla arcade (ahora transparente) -->
+    <div class="screen-border"></div>
+
+    <div class="banner">
+        <h1>JONADEX ARCADE☆</h1>
+    </div>
+
+    <h2 class="blinking-text">DESCARGAS GRATIS</h2>
+    <h4>BETA: 0.3.4 💾</h4>
+
+    <!-- Barra de búsqueda -->
+    <div class="search-container">
+        <input type="text" id="search" placeholder="🔍 BUSCAR JUEGO..." onkeyup="searchApps()">
+    </div>
+
+    <!-- Lista de juegos -->
+    <div class="app-links" id="app-list">
+        <a> Desarrollado por Jona</a>
+        <a href="https://drive.google.com/file/d/1CVEkYyIiIhSgFLTPeG4zMp_RZSfZ25q5/view?usp=drive_link">📼 Spoty Premium</a>
+        <a href="https://drive.google.com/file/d/1FSCkuH4ROggBZ69RLDLIKsZRGwsu8x2Z/view?usp=drivesdk">🕸️ Spider-Man GBA</a>
+        <a href="https://drive.google.com/file/d/14Fno03beSiUkxJALgitymF9pcDhXxbSC/view?usp=drivesdk">🕹️ Sonic Mania Plus</a>
+        <a href="https://drive.google.com/file/d/1SQ99xe4Gxi0JqN8ewHPxeyJNleRvpRSi/view?usp=drivesdk">⛏️ Minecraft 0.14.0</a>
+        <a href="https://drive.google.com/file/d/1G3Hq_YcxpWywWk085Jf_lIxVpybATh4M/view?usp=drivesdk">👻 Fnaf 3</a>
+        <a href="https://www.mediafire.com/file/iwzm95y8z96wngh/FlipaClip_v3.3.2_mod_apkdone.com.apk/file">✏️ Flipaclip Premium</a>
+        <a href="https://www.mediafire.com/file/89cws38k7h8v8yf/SMM_WE_3.4.3F_V3_Keep_Aspect_Ratio.apk/file">⭐ Super Mario Maker</a>
+        <a href="https://drive.google.com/file/d/14lOSq2zaNlkTty_icu2t-_hkQY7iPERM/view?usp=drivesdk">⚔️ Hollow Knight</a>
+        <a href="https://drive.google.com/file/d/177K5xAK8eAsy0B6oauEwlLFPLVg1qIKy/view?usp=drivesdk">☕ Cuphead</a>
+        <a href="https://www.mediafire.com/file/hm3nlsvp11zh7a0/limbo-mod-1.20_%2528Manguitoapps%2529.apk/file">🖤 Limbo</a>
+        <a href="https://drive.google.com/file/d/18EofHDvhEreyi00WjsV8cTlwPGsVTpZR/view?usp=drivesdk">🎥 Descargador de Videos</a>
+        <a href="https://www.instagram.com/jjona.idk/">📷 Sigueme en Instagram</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        © Jona-Dex 2025 - 0.4.0 EDITION 🕹️
+    </footer>
+
+    <script>
+        function searchApps() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let appLinks = document.querySelectorAll('.app-links a');
+
+            appLinks.forEach(function(link) {
+                let appName = link.textContent.toLowerCase();
+                if (appName.includes(input)) {
+                    link.style.display = 'block';
+                } else {
+                    link.style.display = 'none';
+                }
+            });
+        }
+
+        // Efecto de sonido al interactuar (simulado)
+        document.querySelectorAll('.app-links a').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                // Simular sonido de hover
+                // new Audio('hover-sound.wav').play();
+            });
+            
+            link.addEventListener('click', function(e) {
+                // Efecto visual al hacer clic
+                this.style.transform = 'translateY(2px)';
+                this.style.boxShadow = '0 4px 0 #660000';
+                
+                // Pequeño retraso para redirección
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 150);
+            });
+        });
+
+        // Efecto de parpadeo aleatorio más intenso
+        setInterval(() => {
+            if (Math.random() > 0.970) {
+                document.body.style.opacity = 0.9 + Math.random() * 0.2;
+            }
+        }, 100);
+    </script>
 </body>
-</html>
+        </html>
